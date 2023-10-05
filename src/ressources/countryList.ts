@@ -192,7 +192,7 @@ export const countryList: countryListType = {
         flag: "🇨🇨",
         timeAndDateName: "cocos",
     },
-    CD: {
+    ZR: {
         name: "Congo Democratic Republic",
         flag: "🇨🇩",
         timeAndDateName: "congo-demrep",
