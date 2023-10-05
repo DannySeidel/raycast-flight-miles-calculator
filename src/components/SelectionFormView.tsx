@@ -1,26 +1,22 @@
-import { Form, ActionPanel, Action, showToast } from "@raycast/api"
+import { Form, ActionPanel, Action, useNavigation } from "@raycast/api"
 import { AirportDropDownView } from "./AirportDropDownView"
+import { ResultView } from "./ResultView"
+import { milesValues } from "../ressources/milesValues"
 
-interface Values {
-    textfield: string
-    textarea: string
-    datepicker: Date
-    checkbox: boolean
-    dropdown: string
-    tokeneditor: string[]
+interface submitValues {
+    origin: string
+    destination: string
+    miles: string
 }
 
 export const SelectionFormView = () => {
-    function handleSubmit(values: Values) {
-        console.log(values)
-        showToast({ title: "Submitted form", message: "See logs for submitted values" })
-    }
+    const { push } = useNavigation()
 
     return (
         <Form
             actions={
                 <ActionPanel>
-                    <Action.SubmitForm onSubmit={handleSubmit} />
+                    <Action.SubmitForm onSubmit={(values: submitValues) => push(<ResultView {...values} />)} />
                 </ActionPanel>
             }
         >
@@ -30,17 +26,9 @@ export const SelectionFormView = () => {
             <Form.Separator />
 
             <Form.Dropdown id="miles" title="Miles Percentage" defaultValue="1">
-                <Form.Dropdown.Item value="0.1" title="10%" />
-                <Form.Dropdown.Item value="0.15" title="15%" />
-                <Form.Dropdown.Item value="0.2" title="20%" />
-                <Form.Dropdown.Item value="0.25" title="25%" />
-                <Form.Dropdown.Item value="0.5" title="50%" />
-                <Form.Dropdown.Item value="0.75" title="75%" />
-                <Form.Dropdown.Item value="1" title="100%" />
-                <Form.Dropdown.Item value="1.25" title="125%" />
-                <Form.Dropdown.Item value="1.5" title="150%" />
-                <Form.Dropdown.Item value="1.75" title="175%" />
-                <Form.Dropdown.Item value="2" title="200%" />
+                {milesValues.map((value) => (
+                    <Form.Dropdown.Item key={value} value={value.toString()} title={`${value * 100}%`} />
+                ))}
             </Form.Dropdown>
         </Form>
     )
