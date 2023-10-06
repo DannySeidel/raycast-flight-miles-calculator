@@ -12,11 +12,20 @@ interface submitValues {
 export const SelectionFormView = () => {
     const { push } = useNavigation()
 
+    function handleFormSubmit(values: submitValues) {
+        const origin = JSON.parse(values.origin)
+        const destination = JSON.parse(values.destination)
+        const milesPercentage = parseFloat(values.miles)
+
+        push(<ResultView origin={origin} destination={destination} milesPercentage={milesPercentage} />)
+    }
+
+
     return (
         <Form
             actions={
                 <ActionPanel>
-                    <Action.SubmitForm onSubmit={(values: submitValues) => push(<ResultView {...values} />)} />
+                    <Action.SubmitForm onSubmit={handleFormSubmit} />
                 </ActionPanel>
             }
         >

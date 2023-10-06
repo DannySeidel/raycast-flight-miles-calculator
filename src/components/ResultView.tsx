@@ -1,15 +1,39 @@
 import { Detail } from "@raycast/api"
+import { calculateDistance } from "../utils/calculateDistance"
+import { countryList } from "../ressources/countryList"
 
-interface ResultViewProps {
-    origin: string
-    destination: string
-    miles: string
+interface AirportDetails {
+    code: string
+    name: string
+    country: string
+    lat: number
+    lon: number
 }
 
-export const ResultView = ({ origin, destination, miles }: ResultViewProps) => {
+interface ResultViewProps {
+    origin: AirportDetails
+    destination: AirportDetails
+    milesPercentage: number
+}
+
+export const ResultView = ({ origin, destination, milesPercentage }: ResultViewProps) => {
+    const distance = calculateDistance(
+        { latitude: origin.lat, longitude: origin.lon },
+        { latitude: destination.lat, longitude: destination.lon }
+    )
+
+    const milesEarned = distance.mi * milesPercentage
+
     return (
         <Detail
-            markdown={`**Origin:** ${origin}\n**Destination:** ${destination}\n**Miles:** ${parseFloat(miles) * 100}%`}
+            navigationTitle="Calculated Miles"
+            markdown={`### Origin: \t\t\t\t\t [${origin.code}] ${origin.name}, ${countryList[origin.country].name}
+            \n### Destination: \t\t\t [${destination.code}] ${destination.name}, ${countryList[destination.country].name}
+            \n### Miles Percentage: \t ${milesPercentage * 100}%
+            \n### Real Distance: \t\t ${distance.mi.toFixed(0)}mi (${distance.km.toFixed(0)}km)
+
+            \n## This translates to *${(milesEarned).toFixed(0)} Miles* earned for this flight${milesEarned > 5000 ? " 🎉" : "!"}
+            `}
         />
     )
 }

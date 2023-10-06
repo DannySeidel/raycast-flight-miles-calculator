@@ -28,7 +28,13 @@ export const AirportDropDownView = ({ dropdownId, title, autofocus }: AirportDro
             {airports?.results.map((airport) => (
                 <Form.Dropdown.Item
                     key={airport.column_1}
-                    value={airport.column_1}
+                    value={JSON.stringify({
+                        code: airport.column_1,
+                        name: airport.airport_name,
+                        country: airport.country_code,
+                        lat: airport.latitude,
+                        lon: airport.longitude,
+                    })}
                     title={`[${airport.column_1}] ${airport.airport_name} ${countryList[airport.country_code].flag}`}
                 />
             ))}
