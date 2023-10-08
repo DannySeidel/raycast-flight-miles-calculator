@@ -192,7 +192,17 @@ export const countryList: countryListType = {
         flag: "🇨🇨",
         timeAndDateName: "cocos",
     },
+    CD: {
+        name: "Congo Democratic Republic",
+        flag: "🇨🇩",
+        timeAndDateName: "congo-demrep",
+    },
     ZR: {
+        name: "Congo Democratic Republic",
+        flag: "🇨🇩",
+        timeAndDateName: "congo-demrep",
+    },
+    DRC: {
         name: "Congo Democratic Republic",
         flag: "🇨🇩",
         timeAndDateName: "congo-demrep",
@@ -393,6 +403,11 @@ export const countryList: countryListType = {
         timeAndDateName: "gabon",
     },
     GB: {
+        name: "United Kingdom",
+        flag: "🇬🇧",
+        timeAndDateName: "uk",
+    },
+    UK: {
         name: "United Kingdom",
         flag: "🇬🇧",
         timeAndDateName: "uk",
