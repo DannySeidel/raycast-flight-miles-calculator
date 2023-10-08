@@ -28,11 +28,15 @@ export const ResultView = ({ origin, destination, milesPercentage }: ResultViewP
         <Detail
             navigationTitle="Calculated Miles"
             markdown={`### Origin: \t\t\t\t\t [${origin.code}] ${origin.name}, ${countryList[origin.country].name}
-            \n### Destination: \t\t\t [${destination.code}] ${destination.name}, ${countryList[destination.country].name}
+            \n### Destination: \t\t\t [${destination.code}] ${destination.name}, ${
+                countryList[destination.country].name
+            }
             \n### Miles Percentage: \t ${milesPercentage * 100}%
-            \n### Real Distance: \t\t ${distance.mi.toFixed(0)}mi (${distance.km.toFixed(0)}km)
+            \n### Distance: \t\t ${distance.mi.toFixed(0)}mi (${distance.km.toFixed(0)}km)
 
-            \n## This translates to *${(milesEarned).toFixed(0)} Miles* earned for this flight${milesEarned > 5000 ? " 🎉" : "!"}
+            \n## This translates to *${milesEarned.toFixed(0)} Miles* earned for this flight${
+                milesEarned > 5000 ? " 🎉" : "!"
+            }
             `}
         />
     )

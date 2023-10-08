@@ -12,7 +12,7 @@
   "commands": [
     {
       "name": "index",
-      "title": "Calculate Mileage",
+      "title": "Calculate Miles Earned",
       "description": "Calculate how many miles you earn for a flight",
       "mode": "view"
     }

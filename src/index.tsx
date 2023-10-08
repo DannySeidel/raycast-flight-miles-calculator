@@ -1,5 +1,5 @@
-import { SelectionFormView } from "./components/SelectionFormView";
+import { SelectionFormView } from "./components/SelectionFormView"
 
 export default function Command() {
-  return <SelectionFormView />;
+    return <SelectionFormView />
 }

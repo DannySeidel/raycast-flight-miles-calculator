@@ -20,7 +20,6 @@ export const SelectionFormView = () => {
         push(<ResultView origin={origin} destination={destination} milesPercentage={milesPercentage} />)
     }
 
-
     return (
         <Form
             actions={

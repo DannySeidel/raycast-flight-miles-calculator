@@ -1,4 +1,4 @@
-import { Airport } from './Airport'
+import { Airport } from "./Airport"
 
 export interface ApiResponse {
     total_count: number
