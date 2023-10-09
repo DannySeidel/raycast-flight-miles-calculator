@@ -1,7 +1,7 @@
-import { Form, ActionPanel, Action, useNavigation } from "@raycast/api"
+import { Action, ActionPanel, Form, useNavigation } from "@raycast/api"
+import { milesValues } from "../ressources/milesValues"
 import { AirportDropDownView } from "./AirportDropDownView"
 import { ResultView } from "./ResultView"
-import { milesValues } from "../ressources/milesValues"
 
 interface submitValues {
     origin: string

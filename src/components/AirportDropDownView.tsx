@@ -1,9 +1,9 @@
 import { Form } from "@raycast/api"
+import { useFetch } from "@raycast/utils"
 import { useState } from "react"
 import { countryList } from "../ressources/countryList"
 import { ressourceUrl } from "../ressources/ressourceUrl"
 import { ApiResponse } from "../types/ApiResponse"
-import { useFetch } from "@raycast/utils"
 
 interface AirportDropDownViewProps {
     dropdownId: string

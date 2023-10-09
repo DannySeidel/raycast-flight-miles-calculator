@@ -1,6 +1,6 @@
 import { Detail } from "@raycast/api"
-import { calculateDistance } from "../utils/calculateDistance"
 import { countryList } from "../ressources/countryList"
+import { calculateDistance } from "../utils/calculateDistance"
 
 interface AirportDetails {
     code: string
