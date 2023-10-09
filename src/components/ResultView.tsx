@@ -32,7 +32,7 @@ export const ResultView = ({ origin, destination, milesPercentage }: ResultViewP
                 countryList[destination.country].name
             }
             \n### Miles Percentage: \t ${milesPercentage * 100}%
-            \n### Distance: \t\t ${distance.mi.toFixed(0)}mi (${distance.km.toFixed(0)}km)
+            \n### Distance: \t\t\t\t ${distance.mi.toFixed(0)}mi (${distance.km.toFixed(0)}km)
 
             \n## This translates to *${milesEarned.toFixed(0)} Miles* earned for this flight${
                 milesEarned > 5000 ? " 🎉" : "!"
