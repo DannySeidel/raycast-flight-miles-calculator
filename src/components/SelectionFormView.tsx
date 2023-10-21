@@ -1,8 +1,8 @@
 import { Action, ActionPanel, Form, Icon, useNavigation } from "@raycast/api"
+import { showFailureToast } from "@raycast/utils"
 import { milesValues } from "../ressources/milesValues"
 import { AirportDropDownView } from "./AirportDropDownView"
 import { ResultView } from "./ResultView"
-import { showFailureToast } from "@raycast/utils"
 
 interface submitValues {
     origin: string
@@ -18,7 +18,7 @@ export const SelectionFormView = () => {
             showFailureToast("Please select airports")
             return
         }
-        
+
         const origin = JSON.parse(values.origin)
         const destination = JSON.parse(values.destination)
         const milesPercentage = parseFloat(values.miles)
